@@ -1,0 +1,142 @@
+.background-img {
+  /* background-image: url('../src/assets/onboard-bg.png'); */
+  background-color: aliceblue;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  height: 100vh; 
+  width: 100%;
+}
+
+html {
+  background-color: aliceblue;
+}
+
+
+
+.App {
+  width: 90%;
+  margin: auto;
+}
+
+.title {
+  font-size: 24px;
+  cursor: pointer;
+  font-family: "Rethink Sans", sans-serif;
+}
+
+.plt-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.sep {
+  background-color: trnapsarent;
+  width: 15px;
+  height: 100%;
+}
+
+.headline {
+  text-align: center;
+  font-size: 43px;
+  line-height: 1.3;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 120px;
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: 600;
+}
+
+.description {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: auto;
+  width: 71%;
+  max-width: 760px;
+  margin-top: 35px;
+  font-family: "Rethink Sans", sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.rectangle {
+  position: relative;
+  width: 150px;
+  height: 134px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.rectangle.expanded {
+  width: 420px; /* Width when expanded */
+}
+
+.rectangle h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.rectangle p {
+  margin: 0.5rem 0 0;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+}
+
+.plus-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.plus-button:hover {
+  transform: scale(1.1);
+}
+
+.plus-button:focus {
+  outline: none;
+}
+
+
+@media (max-width: 768px) {
+.rectangle {
+  width: unset;
+}
+.rectangle.expanded {
+  width: unset;
+}
+.container {
+  display: block;
+}
+}
