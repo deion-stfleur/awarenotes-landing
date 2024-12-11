@@ -8,10 +8,24 @@
   width: 100%;
 }
 
-html {
-  background-color: aliceblue;
+
+
+
+.border-gray {
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 200px;
+  height: 24px;
+  width: 23px;
 }
 
+.border-white {
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 200px;
+  height: 24px;
+  width: 23px;
+}
 
 
 .App {
@@ -87,6 +101,25 @@ html {
 .rectangle.expanded {
   width: 420px; /* Width when expanded */
 }
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sunIcon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+
+.moonIcon {
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
 
 .rectangle h3 {
   margin: 0;
