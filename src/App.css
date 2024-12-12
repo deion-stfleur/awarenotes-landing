@@ -4,7 +4,6 @@
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
-  height: 100vh; 
   width: 100%;
 }
 
@@ -172,4 +171,13 @@
 .container {
   display: block;
 }
+
+.headline {
+  max-width: unset;
+  font-size: 33px;
+}
+.description {
+  width: unset
+}
+
 }
