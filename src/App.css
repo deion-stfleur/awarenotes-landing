@@ -213,6 +213,10 @@ html, body {
   display: block;
 }
 
+html {
+  overflow: hidden;
+}
+
 .headline {
   max-width: unset;
   font-size: 33px;
@@ -235,5 +239,10 @@ margin-bottom: 20px;
 
 .App {
   width: 100%
+}
+
+.plus-button {
+  width: 30px;
+  height: 30px;
 }
 }
