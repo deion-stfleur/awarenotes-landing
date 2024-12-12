@@ -213,8 +213,8 @@ html, body {
   display: block;
 }
 
-html {
-  overflow: hidden;
+html, body {
+  overflow: unset;
 }
 
 .headline {
