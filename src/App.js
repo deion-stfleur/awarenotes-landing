@@ -70,6 +70,8 @@ function App() {
 
       
           <div className="container">
+
+         
       {rectangles.map((rect, index) => (
         <div
           key={rect.id}
@@ -87,7 +89,12 @@ function App() {
     </div>
 
       </div>
+
+   {/* <div className='plus-btn'>
+        <p>+</p>
+    </div>  */}
     </div>
+
 
     </div>
   );

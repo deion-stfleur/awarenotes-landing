@@ -119,18 +119,25 @@
   color: white;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
 
 .rectangle h3 {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
 .rectangle p {
   margin: 0.5rem 0 0;
   font-size: 18px;
-  color: #666;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -140,7 +147,7 @@
   right: 8px;
   background-color: #007bff;
   color: #fff;
-  border: none;
+  border: 1px black solid;
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -160,13 +167,47 @@
   outline: none;
 }
 
+.container>.rectangle:first-child {
+  background-color: #007bff;
+  }
+
+  .container>.rectangle:nth-child(2) {
+    background-color: #00b026;
+    }
+
+    .plus-btn {
+      width: 50px;           /* Diameter of the circle */
+      height: 50px;          /* Diameter of the circle */
+      background-color: blue; /* Button color */
+      color: white;           /* Text color */
+      border-radius: 50%;     /* Makes it a circle */
+      display: flex;          /* Flexbox for centering */
+      justify-content: center; /* Centers content horizontally */
+      align-items: center;    /* Centers content vertically */
+      font-size: 24px;        /* Font size for the "+" */
+      cursor: pointer;        /* Changes cursor to pointer */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow */
+      border: none;   
+      position: absolute;
+      /* left: 20%; */
+      right: 2%; 
+      bottom: 5%;       /* Optional: Remove border */
+    }
+    
+  
+    
+    .plus-btn:active {
+      background-color: #004080; /* Even darker blue on click */
+    }
+
 
 @media (max-width: 768px) {
 .rectangle {
   width: unset;
 }
 .rectangle.expanded {
-  width: unset;
+  width: 94%;
+  height: 300px;
 }
 .container {
   display: block;
@@ -180,4 +221,19 @@
   width: unset
 }
 
+.background-img {
+  width: unset;
+}
+
+.container>.rectangle:first-child {
+margin-bottom: 20px;
+}
+
+.headline {
+  margin-top: 70px;
+}
+
+.App {
+  width: 100%
+}
 }
