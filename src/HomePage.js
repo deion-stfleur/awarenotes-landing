@@ -6,11 +6,14 @@ import { getAuth } from "firebase/auth";
 import { IoSunnyOutline } from 'react-icons/io5';
 import { LuSunMoon } from 'react-icons/lu';
 import './App.css';
+import './HomePage.css';
+
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { FaApple } from "react-icons/fa6";
 import { IoLogoAndroid } from "react-icons/io";
 import { useTheme } from './ThemeContext';
 import { Link } from 'react-router-dom';
+import { db } from './firebase';
 
 function HomePage() {
     const navigate = useNavigate();
@@ -28,30 +31,32 @@ function HomePage() {
     useEffect(() => {
       const fetchUserDocuments = async () => {
         try {
-          // Get the current authenticated user
+         
           const auth = getAuth();
           const currentUser = auth.currentUser;
+          const docsRef = collection(db, 'documents');
+          console.log(docsRef);
+          // alert(auth.currentUser.email);
           
           if (currentUser) {
-            // Get a reference to the Firestore database
+         
             const db = getFirestore();
             
-            // Create a query to fetch documents belonging to the current user
-            const q = query(
-              collection(db, 'documents'),
-              where('userId', '==', currentUser.uid)
+      
+            const q = query(docsRef,where('userId', '==', auth.currentUser.email)
             );
             
-            // Execute the query and get the documents
+      
             const querySnapshot = await getDocs(q);
             
-            // Map the documents to an array
+      
             const userDocuments = querySnapshot.docs.map((doc) => ({
               id: doc.id,
               ...doc.data(),
             }));
             
             setDocuments(userDocuments);
+            console.log('User documents:', userDocuments);
           }
           setLoading(false);
         } catch (err) {
@@ -108,7 +113,14 @@ function HomePage() {
 
         <div className='hp-row'>
               <div className='header-row'>
+
+                <div style={{ display: "flex", alignItems: "center"}}>
           <h1 className='title' style={{ color: bgColor === "white" ? "#333" : "white" }}>{title}</h1>
+
+          {/* <div style={{ marginLeft: "20px"}}>
+            <input type="text" placeholder="Search" className="search-input" />
+          </div> */}
+                </div>
 
 
     <div className='login-row'>
@@ -116,6 +128,9 @@ function HomePage() {
     <div className='logout' onClick={handleSignOut}>
         <p>Sign out</p>
         </div>
+          <div style={{cursor: "pointer"}} className='prof-icon'>
+        <p className='prof-text-i'>{auth.currentUser.email.slice(0, 1)}</p>
+       </div>
           {bgColor === "white" ? (
             <div className='border-gray'>
               <IoSunnyOutline onClick={toggleBackgroundAndTitle} className='sunIcon' />
@@ -130,7 +145,7 @@ function HomePage() {
         </div>
 
 
-        <p style={{ color: bgColor === "white" ? "#333" : "white", fontSize: "30px", fontWeight: "bold"}} className='welcome'>Welcome!</p>
+        <p style={{ color: bgColor === "white" ? "#333" : "white", fontSize: "30px", fontWeight: "bold"}} className='welcome'>Welcome Back!</p>
 
         <div className='hp-comp'>
             <div className='profile'>
@@ -183,9 +198,9 @@ function HomePage() {
               key={doc.id}
             >
               {/* Display document data */}
-              <p><strong>Text:</strong> {doc.text}</p>
-              <p><strong>Timestamp:</strong> {new Date(doc.timestamp.seconds * 1000).toLocaleString()}</p>
-              <p><strong>User ID:</strong> {doc.userId}</p>
+              <p style={{ color: bgColor === "white" ? "#333" : "#a2a2a2"}}> {doc.text}</p>
+              <p style={{ color: bgColor === "white" ? "#333" : "#a2a2a2"}}> {new Date(doc.timestamp.seconds * 1000).toLocaleString()}</p>
+              <p style={{ color: bgColor === "white" ? "#333" : "#a2a2a2"}}><span className='created-by-text'>Created by:</span>{doc.userId}</p>
             </li>
           ))}
         </ul>
